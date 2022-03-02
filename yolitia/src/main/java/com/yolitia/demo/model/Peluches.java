@@ -2,9 +2,10 @@ package com.yolitia.demo.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,8 +33,8 @@ public class Peluches {
 	@OneToMany(mappedBy = "peluche")
 	private List<Personalizacion> personalizacion;
 	
-	@OneToOne()
-	@JoinColumn(name="Productos_id")
-	private Productos productos;
 
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "productos_id")
+	private Productos productos;
 }

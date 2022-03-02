@@ -1,8 +1,10 @@
 package com.yolitia.demo.model;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -59,12 +61,8 @@ public class Perfil {
 	
 	private String contrasenia;
 	
-	@OneToOne()
-	@JoinColumn(name = "idusuario")
+	
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
-	
-	
-	
-	
-
 }

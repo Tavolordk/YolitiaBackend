@@ -1,14 +1,18 @@
 package com.yolitia.demo.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -45,11 +49,10 @@ public class Productos {
 	
 	private String descripcion;
 	
-	@ManyToOne()
-	@JoinColumn(name = "id_orden")
-	private Orden orden;
+	@OneToMany(mappedBy = "productos")
+	private List<Orden> orden;
 	
-	@OneToOne(mappedBy = "productos")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "productos")
 	private Peluches peluches;
-
+	
 }
