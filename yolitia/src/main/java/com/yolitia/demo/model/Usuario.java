@@ -15,30 +15,79 @@ import javax.persistence.OneToOne;
 
 import javax.persistence.Table;
 
-import lombok.Data;
-
 @Entity
 @Table(name = "usuario")
-@Data
 public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_usuario", nullable = false)
+	@Column(nullable = false)
 	private Integer id_usuario;
 	
-	@Column(name = "nombre", nullable = false, length = 255)
+	@Column(nullable = false,length = 255)
 	private String nombre;
 	
-	@Column(name = "correo", nullable = false, length = 255)
+	@Column(unique = true)
 	private String correo;
 	
-	@Column(name = "contrasenia", nullable = false, length = 255)
+	@Column(nullable = false,length = 255)
 	private String contrasenia;
+	
+	
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Resenias> resenias;
 	
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "usuario")
 	private Perfil perfil;
+
+	public Integer getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(Integer id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	public List<Resenias> getResenias() {
+		return resenias;
+	}
+
+	public void setResenias(List<Resenias> resenias) {
+		this.resenias = resenias;
+	}
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+	
+	
 }

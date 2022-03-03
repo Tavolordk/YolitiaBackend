@@ -10,27 +10,68 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
 
 @Entity
 @Table(name = "resenias")
-@Data
 public class Resenias {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_resenias", nullable = false)
+	@Column(nullable = false)
 	private Integer id_resenias;
 	
-	@Column(name = "texto", nullable = false, length = 255)
+	@Column(nullable = false, length = 255)
 	private String texto;
 	
-	@Column(name = "imagen", nullable = false, length = 255)
+	@Column(nullable = false, length = 255)
 	private String imagen;
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+
+
+	public Integer getId_resenias() {
+		return id_resenias;
+	}
+
+
+	public void setId_resenias(Integer id_resenias) {
+		this.id_resenias = id_resenias;
+	}
+
+
+	public String getTexto() {
+		return texto;
+	}
+
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+
+	public String getImagen() {
+		return imagen;
+	}
+
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 	
 	
 
