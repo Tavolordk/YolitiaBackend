@@ -26,6 +26,9 @@ public class Resenias {
 	@Column(nullable = false, length = 255)
 	private String imagen;
 	
+	@Column(nullable = false, length = 255)
+	private String nombrePeluche;
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario_id")

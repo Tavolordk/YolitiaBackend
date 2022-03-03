@@ -1,8 +1,11 @@
 package com.yolitia.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yolitia.demo.model.Peluches;
+import com.yolitia.demo.model.Productos;
 import com.yolitia.demo.services.PelucheService;
 
 @RestController
@@ -36,6 +40,11 @@ public class PelucheController {
 	    @GetMapping("/all")
 	    public ArrayList<Peluches> getPeluches() {
 	        return (ArrayList<Peluches>) pelucheService.getPeluches();
+	    }
+	    
+	    @GetMapping("/alldatos")
+	    public List<Map<String,Object>> getPeluchesT() {
+	        return pelucheService.obtenerDatosPeluches();
 	    }
 	    
 	    @DeleteMapping("/eliminar/{id}")
