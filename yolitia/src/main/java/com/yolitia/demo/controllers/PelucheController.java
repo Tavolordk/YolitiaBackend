@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yolitia.demo.model.Peluches;
-import com.yolitia.demo.model.Productos;
 import com.yolitia.demo.services.PelucheService;
 
 @RestController

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 import com.yolitia.demo.model.Peluches;
-import com.yolitia.demo.model.Productos;
 import com.yolitia.demo.repositories.PelucheRepository;
 import com.yolitia.demo.services.PelucheService;
 
