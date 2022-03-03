@@ -12,4 +12,5 @@ public interface PelucheService {
 	void delete(Integer id);
 	
 	List<Map<String,Object>> obtenerDatosPeluches();
+	
 }
