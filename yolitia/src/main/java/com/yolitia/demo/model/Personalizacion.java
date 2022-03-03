@@ -2,7 +2,7 @@ package com.yolitia.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,14 +10,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 
 
 
 
 @Entity
 @Table(name = "personalizacion")
-@Data
+
 public class Personalizacion {
 
 	@Id
@@ -40,11 +42,69 @@ public class Personalizacion {
     
 	@ManyToOne()
 	@JoinColumn(name = "peluche_id")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Peluches peluche;
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getModelo() {
+		return modelo;
+	}
+
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+
+	public String getSombrero() {
+		return sombrero;
+	}
+
+
+	public void setSombrero(String sombrero) {
+		this.sombrero = sombrero;
+	}
+
+
+	public String getMonio() {
+		return monio;
+	}
+
+
+	public void setMonio(String monio) {
+		this.monio = monio;
+	}
+
+
+	public Peluches getPeluche() {
+		return peluche;
+	}
+
+
+	public void setPeluche(Peluches peluche) {
+		this.peluche = peluche;
+	}
 	
 	
-	
-	
-	
-	
+
 }

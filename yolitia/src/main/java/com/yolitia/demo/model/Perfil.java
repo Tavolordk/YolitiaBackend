@@ -1,10 +1,10 @@
 package com.yolitia.demo.model;
 
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,11 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+
 
 @Entity
 @Table(name = "perfil")
-@Data
+
 public class Perfil {
 	
 	@Id
@@ -63,7 +63,7 @@ public class Perfil {
 	private String contrasenia;
 	
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 

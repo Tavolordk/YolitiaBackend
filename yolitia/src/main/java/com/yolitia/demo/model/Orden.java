@@ -2,10 +2,10 @@ package com.yolitia.demo.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,12 +15,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-import lombok.Data;
+
 
 @Entity
 @Table(name = "orden")
-@Data
 public class Orden {
 	
 	
@@ -64,13 +65,95 @@ public class Orden {
 		
 		@ManyToOne()
 		@JoinColumn(name = "id_productos")
+		@JsonProperty(access = Access.WRITE_ONLY)
 		private Productos productos;
 		
 		@OneToOne()
 		@JoinColumn(name = "id_usuario")
 		private Usuario usuario;
 		
-		@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "orden")
+		@OneToOne(mappedBy = "orden")
 		private Pago pago;
+
+		public Integer getId() {
+			return id;
+		}
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
+		public Integer getCantidad_articulos() {
+			return cantidad_articulos;
+		}
+
+		public void setCantidad_articulos(Integer cantidad_articulos) {
+			this.cantidad_articulos = cantidad_articulos;
+		}
+
+		public Date getFecha() {
+			return fecha;
+		}
+
+		public void setFecha(Date fecha) {
+			this.fecha = fecha;
+		}
+
+		public float getMonto_total() {
+			return monto_total;
+		}
+
+		public void setMonto_total(float monto_total) {
+			this.monto_total = monto_total;
+		}
+
+		public String getDireccion_entrega() {
+			return direccion_entrega;
+		}
+
+		public void setDireccion_entrega(String direccion_entrega) {
+			this.direccion_entrega = direccion_entrega;
+		}
+
+		public Integer getTelefono() {
+			return telefono;
+		}
+
+		public void setTelefono(Integer telefono) {
+			this.telefono = telefono;
+		}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+		public Productos getProductos() {
+			return productos;
+		}
+
+		public void setProductos(Productos productos) {
+			this.productos = productos;
+		}
+
+		public Usuario getUsuario() {
+			return usuario;
+		}
+
+		public void setUsuario(Usuario usuario) {
+			this.usuario = usuario;
+		}
+
+		public Pago getPago() {
+			return pago;
+		}
+
+		public void setPago(Pago pago) {
+			this.pago = pago;
+		}
+		
 		
 }

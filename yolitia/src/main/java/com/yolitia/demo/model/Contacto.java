@@ -8,13 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-import lombok.Data;
-
-
 @Entity
 @Table(name = "contacto")
-@Data
+
 public class Contacto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,11 +38,45 @@ public class Contacto {
 	
 	
 	private String mensaje;
-	
-	
-	
-	
-	
-	
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCorreo_electronico() {
+		return correo_electronico;
+	}
+
+	public void setCorreo_electronico(String correo_electronico) {
+		this.correo_electronico = correo_electronico;
+	}
+
+	public String getAsunto() {
+		return asunto;
+	}
+
+	public void setAsunto(String asunto) {
+		this.asunto = asunto;
+	}
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+	
 }

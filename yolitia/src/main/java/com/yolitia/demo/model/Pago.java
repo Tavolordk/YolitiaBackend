@@ -1,10 +1,10 @@
 package com.yolitia.demo.model;
 
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,7 +49,7 @@ public class Pago {
 	
 	private Integer codigo_seguridad;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "orden_id")
 	private Orden orden;
 	

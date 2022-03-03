@@ -2,10 +2,8 @@ package com.yolitia.demo.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,11 +13,10 @@ import javax.persistence.OneToOne;
 
 import javax.persistence.Table;
 
-import lombok.Data;
 
 @Entity
 @Table(name = "productos")
-@Data
+
 public class Productos {
 	
 	@Id
@@ -52,7 +49,65 @@ public class Productos {
 	@OneToMany(mappedBy = "productos")
 	private List<Orden> orden;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "productos")
+	@OneToOne(mappedBy = "productos")
 	private Peluches peluches;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public List<Orden> getOrden() {
+		return orden;
+	}
+
+	public void setOrden(List<Orden> orden) {
+		this.orden = orden;
+	}
+
+	public Peluches getPeluches() {
+		return peluches;
+	}
+
+	public void setPeluches(Peluches peluches) {
+		this.peluches = peluches;
+	}
+	
+	
 	
 }
