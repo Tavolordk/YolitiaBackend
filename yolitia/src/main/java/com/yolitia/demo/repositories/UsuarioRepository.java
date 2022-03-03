@@ -7,5 +7,6 @@ import com.yolitia.demo.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
-
+	
+	Usuario findByCorreo(String correo);
 }

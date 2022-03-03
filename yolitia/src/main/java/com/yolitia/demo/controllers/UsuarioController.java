@@ -3,12 +3,8 @@ package com.yolitia.demo.controllers;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
 import com.yolitia.demo.model.Usuario;
 import com.yolitia.demo.services.UsuarioService;
@@ -18,13 +14,16 @@ import com.yolitia.demo.services.UsuarioService;
 public class UsuarioController {
 	
 	private final UsuarioService usuarioService;
+	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public UsuarioController(@Autowired UsuarioService usuarioService) {
+	public UsuarioController(@Autowired UsuarioService usuarioService, @Autowired BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.usuarioService = usuarioService;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	
 	@PostMapping
     public Usuario saveUsuario(@RequestBody Usuario usuario) {
+		usuario.setContrasenia(bCryptPasswordEncoder.encode(usuario.getContrasenia()));
         return usuarioService.saveUsuario(usuario);
     }
 
