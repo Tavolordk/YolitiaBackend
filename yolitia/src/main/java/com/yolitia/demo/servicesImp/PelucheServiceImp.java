@@ -1,9 +1,11 @@
 package com.yolitia.demo.servicesImp;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import com.yolitia.demo.model.Peluches;
 import com.yolitia.demo.repositories.PelucheRepository;
@@ -36,6 +38,11 @@ public class PelucheServiceImp implements PelucheService {
 	@Override
 	public void delete(Integer id) {
 		 pelucheRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Map<String,Object>> obtenerDatosPeluches() {
+		return pelucheRepository.obtenerDatosPeluche();
 	}
 
 }

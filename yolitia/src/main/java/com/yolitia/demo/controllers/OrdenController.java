@@ -1,6 +1,8 @@
 package com.yolitia.demo.controllers;
 
 
+import java.util.ArrayList;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,6 +36,10 @@ public class OrdenController {
 	@DeleteMapping("/eliminar/{id}")
     public void eliminar(@PathVariable ("id") Integer id) {
     	ordenService.delete(id);
+    }
+	@GetMapping("/all")
+    public ArrayList<Orden> getOrden() {
+        return (ArrayList<Orden>) ordenService.getOrden();
     }
 	
 }

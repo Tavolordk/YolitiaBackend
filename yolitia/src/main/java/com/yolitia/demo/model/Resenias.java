@@ -21,15 +21,26 @@ public class Resenias {
 	private Integer id_resenias;
 	
 	@Column(nullable = false, length = 255)
+	private String nombre;
+	
+	@Column(nullable = false, length = 255)
 	private String texto;
 	
 	@Column(nullable = false, length = 255)
 	private String imagen;
-	
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
 
 	public Integer getId_resenias() {

@@ -39,5 +39,5 @@ public class ProductosServiceImp implements ProductosService{
 	public void delete(Integer id) {
 		productoRepository.deleteById(id);
 	}
-
+	
 }
