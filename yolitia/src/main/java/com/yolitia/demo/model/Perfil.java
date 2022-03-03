@@ -30,13 +30,7 @@ public class Perfil {
 	
 	
 	private String imagen;
-	
-	@Column(name = "usuarioNombre", nullable = false, length = 255)
-	
-	
-	private String usurarioNombre;
-	
-	
+		
 
 	@Column(name = "apellido", nullable = false, length = 255)
 	
