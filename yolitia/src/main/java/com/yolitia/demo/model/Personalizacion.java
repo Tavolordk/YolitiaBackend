@@ -43,7 +43,7 @@ public class Personalizacion {
 	
     
 	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "FK_PELUCHE", nullable = false)
+	@JoinColumn(name = "FK_PELUCHE")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Peluches peluche;
 
