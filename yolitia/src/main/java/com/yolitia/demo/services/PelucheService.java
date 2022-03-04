@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.yolitia.demo.model.Peluches;
-import com.yolitia.demo.model.Productos;
 
 public interface PelucheService {
 	Peluches getPeluche(Integer id);
@@ -13,4 +12,5 @@ public interface PelucheService {
 	void delete(Integer id);
 	
 	List<Map<String,Object>> obtenerDatosPeluches();
+	
 }

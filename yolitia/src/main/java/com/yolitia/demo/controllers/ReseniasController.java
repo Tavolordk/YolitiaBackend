@@ -29,12 +29,13 @@ public class ReseniasController {
         return reseniasService.saveResenias(user);
     }
 
+	
     @GetMapping("/{id}")
     public Resenias getResenia(@PathVariable Integer id) {
         return reseniasService.getResenia(id);
     }
 
-
+    
     @GetMapping("/all")
     public ArrayList<Resenias> getResenias() {
         return (ArrayList<Resenias>) reseniasService.getResenias();

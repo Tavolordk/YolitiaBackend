@@ -32,7 +32,7 @@ public class Pago {
 	@Column(name = "numero_tarjeta", nullable = false )
 	
 	
-	private Integer numero_tarjeta;
+	private Long numero_tarjeta;
 	
 	@Column(name = "fecha_expiracion", nullable = false)
 	

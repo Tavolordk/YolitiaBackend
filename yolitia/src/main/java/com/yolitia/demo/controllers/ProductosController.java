@@ -1,6 +1,8 @@
 package com.yolitia.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,6 +36,16 @@ public class ProductosController {
 	    @GetMapping("/all")
 	    public ArrayList<Productos> getProductos() {
 	        return (ArrayList<Productos>) productoService.getProductos();
+	    }
+	    
+	    @GetMapping("/allproductos")
+	    public List<Map<String,Object>> obtenerSoloProductos() {
+	        return productoService.obtenerSoloProductos();
+	    }
+	    
+	    @GetMapping("/productosn")
+	    public List<Map<String,Object>> obtenerProductosNuevos() {
+	        return productoService.obtenerProductosNuevos();
 	    }
 	    
 	    @DeleteMapping("/eliminar/{id}")

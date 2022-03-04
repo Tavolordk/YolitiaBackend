@@ -22,10 +22,10 @@ public class Resenias {
 	private Integer id_resenias;
 	
 	@Column(nullable = false, length = 255)
-	private String texto;
+	private String nombre;
 	
 	@Column(nullable = false, length = 255)
-	private String imagen;
+	private String texto;
 	
 	@Column(nullable = false, length = 255)
 	private String nombrePeluche;
@@ -34,6 +34,15 @@ public class Resenias {
 	@JoinColumn(name = "FK_USUARIO", nullable = false)
 	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Usuario usuario;
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
 
 	public Integer getId_resenias() {

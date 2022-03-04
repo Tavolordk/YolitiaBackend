@@ -1,6 +1,7 @@
 package com.yolitia.demo.servicesImp;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,16 @@ public class ProductosServiceImp implements ProductosService{
 	@Override
 	public void delete(Integer id) {
 		productoRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Map<String, Object>> obtenerSoloProductos() {
+		return productoRepository.obtenerSoloProductos();
+	}
+
+	@Override
+	public List<Map<String, Object>> obtenerProductosNuevos() {
+		return productoRepository.obtenerProductosNuevos();
 	}
 	
 }
