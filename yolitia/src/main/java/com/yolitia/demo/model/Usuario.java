@@ -41,6 +41,8 @@ public class Usuario {
 	@OneToOne(mappedBy = "usuario")
 	private Perfil perfil;
 
+	
+	
 	public Integer getId_usuario() {
 		return id_usuario;
 	}
