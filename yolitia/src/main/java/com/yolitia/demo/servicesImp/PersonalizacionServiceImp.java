@@ -1,6 +1,7 @@
 package com.yolitia.demo.servicesImp;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,11 @@ public class PersonalizacionServiceImp implements PersonalizacionService{
 	@Override
 	public void delete(Integer id) {
 		personalizacionRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Map<String, Object>> obtenerDatosPeluches() {
+		return personalizacionRepository.obtenerDatosPeluche();
 	}
 
 }
