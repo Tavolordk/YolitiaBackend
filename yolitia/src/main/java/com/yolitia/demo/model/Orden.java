@@ -55,7 +55,7 @@ public class Orden {
 		@Column(name = "telefono", nullable = false)
 		
 		
-		private Integer telefono;
+		private Long telefono;
 		
 		@Column(name = "nombre", nullable = false, length = 255)
 		
@@ -115,11 +115,11 @@ public class Orden {
 			this.direccion_entrega = direccion_entrega;
 		}
 
-		public Integer getTelefono() {
+		public Long getTelefono() {
 			return telefono;
 		}
 
-		public void setTelefono(Integer telefono) {
+		public void setTelefono(Long telefono) {
 			this.telefono = telefono;
 		}
 
