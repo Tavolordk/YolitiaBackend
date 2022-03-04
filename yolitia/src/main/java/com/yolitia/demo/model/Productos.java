@@ -2,6 +2,7 @@ package com.yolitia.demo.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,10 +47,10 @@ public class Productos {
 	
 	private String descripcion;
 	
-	@OneToMany(mappedBy = "productos")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "productos")
 	private List<Orden> orden;
 	
-	@OneToOne(mappedBy = "productos")
+	@OneToOne(cascade = CascadeType.ALL,mappedBy = "productos")
 	private Peluches peluches;
 
 	public Integer getId() {

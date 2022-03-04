@@ -1,5 +1,6 @@
 package com.yolitia.demo.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,8 +31,8 @@ public class Resenias {
 	private String nombrePeluche;
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "usuario_id")
+	@JoinColumn(name = "FK_USUARIO", nullable = false)
+	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Usuario usuario;
 
 

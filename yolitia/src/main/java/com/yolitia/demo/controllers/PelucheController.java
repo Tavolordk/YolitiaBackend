@@ -51,4 +51,5 @@ public class PelucheController {
 	    public void eliminar(@PathVariable ("id") Integer id) {
 	    	pelucheService.delete(id);
 	    }
+	    
 }

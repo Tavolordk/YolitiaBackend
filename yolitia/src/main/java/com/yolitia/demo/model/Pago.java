@@ -12,13 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
-import lombok.Data;
-
-
 @Entity
 @Table(name = "pago")
-@Data
 public class Pago {
 	
 
@@ -52,6 +47,54 @@ public class Pago {
 	@OneToOne()
 	@JoinColumn(name = "orden_id")
 	private Orden orden;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombre_titular() {
+		return nombre_titular;
+	}
+
+	public void setNombre_titular(String nombre_titular) {
+		this.nombre_titular = nombre_titular;
+	}
+
+	public Integer getNumero_tarjeta() {
+		return numero_tarjeta;
+	}
+
+	public void setNumero_tarjeta(Integer numero_tarjeta) {
+		this.numero_tarjeta = numero_tarjeta;
+	}
+
+	public String getFecha_expiracion() {
+		return fecha_expiracion;
+	}
+
+	public void setFecha_expiracion(String fecha_expiracion) {
+		this.fecha_expiracion = fecha_expiracion;
+	}
+
+	public Integer getCodigo_seguridad() {
+		return codigo_seguridad;
+	}
+
+	public void setCodigo_seguridad(Integer codigo_seguridad) {
+		this.codigo_seguridad = codigo_seguridad;
+	}
+
+	public Orden getOrden() {
+		return orden;
+	}
+
+	public void setOrden(Orden orden) {
+		this.orden = orden;
+	}
 	
 
 }

@@ -2,7 +2,7 @@ package com.yolitia.demo.model;
 
 import java.util.List;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -24,13 +24,13 @@ public class Peluches {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idPeluches", nullable = false)
+	@Column(name = "id_peluches", nullable = false)
 	
 	
 	private Integer id;
 
 	
-	@OneToMany(mappedBy = "peluche")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "peluche")
 	private List<Personalizacion> personalizacion;
 	
 
