@@ -2,7 +2,7 @@ package com.yolitia.demo.model;
 
 import java.util.List;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -35,10 +35,10 @@ public class Usuario {
 	
 	
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private List<Resenias> resenias;
 	
-	@OneToOne(mappedBy = "usuario")
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private Perfil perfil;
 
 	

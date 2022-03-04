@@ -2,10 +2,10 @@ package com.yolitia.demo.model;
 
 import java.util.Date;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -55,7 +55,7 @@ public class Orden {
 		@Column(name = "telefono", nullable = false)
 		
 		
-		private Integer telefono;
+		private Long telefono;
 		
 		@Column(name = "nombre", nullable = false, length = 255)
 		
@@ -63,8 +63,8 @@ public class Orden {
 		private String nombre;
 		
 		
-		@ManyToOne()
-		@JoinColumn(name = "id_productos")
+		@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+		@JoinColumn(name = "FK_PRODUCTO", nullable = false)
 		@JsonProperty(access = Access.WRITE_ONLY)
 		private Productos productos;
 		
@@ -72,7 +72,7 @@ public class Orden {
 		@JoinColumn(name = "id_usuario")
 		private Usuario usuario;
 		
-		@OneToOne(mappedBy = "orden")
+		@OneToOne(mappedBy = "orden", cascade = CascadeType.ALL)
 		private Pago pago;
 
 		public Integer getId() {
@@ -115,11 +115,11 @@ public class Orden {
 			this.direccion_entrega = direccion_entrega;
 		}
 
-		public Integer getTelefono() {
+		public Long getTelefono() {
 			return telefono;
 		}
 
-		public void setTelefono(Integer telefono) {
+		public void setTelefono(Long telefono) {
 			this.telefono = telefono;
 		}
 

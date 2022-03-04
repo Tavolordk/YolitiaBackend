@@ -1,5 +1,6 @@
 package com.yolitia.demo.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,19 +29,11 @@ public class Resenias {
 	
 	@Column(nullable = false, length = 255)
 	private String imagen;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "usuario_id")
-	private Usuario usuario;
 	
-	public String getNombre() {
-		return nombre;
-	}
-
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	
+	@JoinColumn(name = "FK_USUARIO", nullable = false)
+	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Usuario usuario;
 
 
 	public Integer getId_resenias() {
@@ -50,6 +43,16 @@ public class Resenias {
 
 	public void setId_resenias(Integer id_resenias) {
 		this.id_resenias = id_resenias;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 
@@ -81,5 +84,7 @@ public class Resenias {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	
 	
 }

@@ -1,8 +1,10 @@
 package com.yolitia.demo.model;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,8 +42,8 @@ public class Personalizacion {
 	private String monio;
 	
     
-	@ManyToOne()
-	@JoinColumn(name = "peluche_id")
+	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "FK_PELUCHE")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Peluches peluche;
 
