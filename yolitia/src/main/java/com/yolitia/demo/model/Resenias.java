@@ -33,6 +33,10 @@ public class Resenias {
 	
 	@JoinColumn(name = "FK_USUARIO", nullable = false)
 	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private String imagen;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
 	public String getNombre() {

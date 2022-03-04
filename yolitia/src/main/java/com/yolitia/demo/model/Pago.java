@@ -64,11 +64,11 @@ public class Pago {
 		this.nombre_titular = nombre_titular;
 	}
 
-	public Integer getNumero_tarjeta() {
+	public Long getNumero_tarjeta() {
 		return numero_tarjeta;
 	}
 
-	public void setNumero_tarjeta(Integer numero_tarjeta) {
+	public void setNumero_tarjeta(Long numero_tarjeta) {
 		this.numero_tarjeta = numero_tarjeta;
 	}
 
