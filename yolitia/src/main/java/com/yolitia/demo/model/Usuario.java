@@ -41,6 +41,8 @@ public class Usuario {
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private Perfil perfil;
 
+	
+	
 	public Integer getId_usuario() {
 		return id_usuario;
 	}
