@@ -42,7 +42,7 @@ public class Personalizacion {
 	private String monio;
 	
     
-	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "FK_PELUCHE")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Peluches peluche;
